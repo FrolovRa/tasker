@@ -10,4 +10,6 @@ public interface TasksService {
     Task findById(long taskId);
 
     Set<Task> findByUserId(long userId);
+
+    void putTask(Task task);
 }
