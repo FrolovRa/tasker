@@ -1,7 +1,10 @@
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -10,7 +13,6 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 public class TestConfig {
-    // Свойства источника данных
     @Value("${jdbc.driverClassName}")
     private String driverClassName;
     @Value("${jdbc.url}")
@@ -20,9 +22,6 @@ public class TestConfig {
     @Value("${jdbc.password}")
     private String password;
 
-    /**
-     * Компонент источника данных
-     */
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -33,7 +32,6 @@ public class TestConfig {
         return dataSource;
     }
 
-    // Свойства Hibernate
     @Value("${hibernate.dialect}")
     private String hibernateDialect;
     @Value("${hibernate.show_sql}")
@@ -41,9 +39,6 @@ public class TestConfig {
     @Value("${hibernate.hbm2ddl.auto}")
     private String hibernateHBM2DDLAuto;
 
-    /**
-     * Свойства Hibernate в виде объекта класса Properties
-     */
     @Bean
     public Properties hibernateProperties() {
         Properties properties = new Properties();
@@ -52,28 +47,20 @@ public class TestConfig {
         properties.put("hibernate.hbm2ddl.auto", hibernateHBM2DDLAuto);
         return properties;
     }
-//
-//    /**
-//     * Фабрика сессий Hibernate
-//     */
-//    @Bean
-//    @SuppressWarnings("deprecation")
-//    public SessionFactory sessionFactory() {
-//        return new LocalSessionFactoryBuilder(dataSource())
-//                .scanPackages("net.shafranov.spring.noxml.core.model")
-//                .addProperties(hibernateProperties())
-//                // используем устаревший метод, так как Spring не оставляет нам выбора
-//                .buildSessionFactory();
-//    }
-//
-//    /**
-//     * Менеджер транзакций
-//     */
-//    @Bean
-//    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-//        HibernateTransactionManager htm = new HibernateTransactionManager();
-//        htm.setSessionFactory(sessionFactory);
-//        return htm;
-//    }
+
+    @Bean
+    public SessionFactory sessionFactory() {
+        return new LocalSessionFactoryBuilder(dataSource())
+                .scanPackages("")
+                .addProperties(hibernateProperties())
+                .buildSessionFactory();
+    }
+
+    @Bean
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+        HibernateTransactionManager htm = new HibernateTransactionManager();
+        htm.setSessionFactory(sessionFactory);
+        return htm;
+    }
 
 }
