@@ -1,10 +1,10 @@
-package services.impl;
+package service.impl;
 
 import dao.TaskDao;
-import dao.entity.Task;
+import entity.Task;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import services.TasksService;
+import service.TasksService;
 
 import java.util.Set;
 

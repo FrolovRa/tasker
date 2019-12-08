@@ -1,6 +1,6 @@
 package dao;
 
-import dao.entity.Task;
+import entity.Task;
 
 import java.util.Optional;
 import java.util.Set;

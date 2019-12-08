@@ -1,6 +1,6 @@
 package dao;
 
-import dao.entity.User;
+import entity.User;
 
 public interface UserDao {
     User findById(long userId);

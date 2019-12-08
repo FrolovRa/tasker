@@ -1,6 +1,6 @@
-package services;
+package service;
 
-import dao.entity.Task;
+import entity.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

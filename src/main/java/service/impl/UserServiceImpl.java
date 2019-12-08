@@ -1,9 +1,9 @@
-package services.impl;
+package service.impl;
 
 import dao.UserDao;
-import dao.entity.User;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import services.UserService;
+import service.UserService;
 
 public class UserServiceImpl implements UserService {
 

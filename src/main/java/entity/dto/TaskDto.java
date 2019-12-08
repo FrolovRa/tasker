@@ -1,4 +1,4 @@
-package dao.entity.dto;
+package entity.dto;
 
 import lombok.Data;
 

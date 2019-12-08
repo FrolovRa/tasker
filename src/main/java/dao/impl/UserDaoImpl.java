@@ -1,7 +1,7 @@
 package dao.impl;
 
 import dao.UserDao;
-import dao.entity.User;
+import entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

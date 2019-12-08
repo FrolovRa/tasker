@@ -1,6 +1,6 @@
-package services;
+package service;
 
-import dao.entity.User;
+import entity.User;
 import org.springframework.stereotype.Service;
 
 @Service

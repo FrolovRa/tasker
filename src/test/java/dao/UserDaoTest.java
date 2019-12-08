@@ -14,7 +14,7 @@ public class UserDaoTest extends AbstractDaoTest {
 
     @Test
     public void testFindById() {
-        val r = userDao.findById(6L);
+        val r = userDao.findById(1L);
         System.out.println(r);
     }
 }

@@ -1,7 +1,7 @@
 package dao.impl;
 
 import dao.TaskDao;
-import dao.entity.Task;
+import entity.Task;
 import lombok.val;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

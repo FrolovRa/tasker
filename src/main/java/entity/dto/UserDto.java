@@ -1,6 +1,6 @@
-package dao.entity.dto;
+package entity.dto;
 
-import dao.entity.Task;
+import entity.Task;
 import lombok.Data;
 
 import java.util.Set;

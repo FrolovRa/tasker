@@ -1,4 +1,4 @@
-package dao.entity;
+package entity;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
