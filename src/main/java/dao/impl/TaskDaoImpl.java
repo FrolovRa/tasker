@@ -3,6 +3,7 @@ package dao.impl;
 import dao.TaskDao;
 import entity.Task;
 import lombok.val;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,7 +26,7 @@ public class TaskDaoImpl implements TaskDao {
                 .get(Task.class, taskId));
     }
 
-    public Set<Task> findByUserId(long userId) {
+    public Set<Task> findTasksByUserId(long userId) {
         val criteriaBuilder = sessionFactory.getCriteriaBuilder();
         val criteriaQuery = criteriaBuilder.createQuery(Task.class);
         val root = criteriaQuery.from(Task.class);
@@ -38,9 +39,9 @@ public class TaskDaoImpl implements TaskDao {
                 .collect(Collectors.toSet());
     }
 
-    public void putTask(Task task) {
-        sessionFactory
-                .getCurrentSession()
-                .save(task);
+    public Task putTask(Task task) {
+        val session = sessionFactory.getCurrentSession();
+        val id = session.save(task);
+        return session.get(Task.class, id);
     }
 }

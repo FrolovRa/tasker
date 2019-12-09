@@ -13,7 +13,7 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private long id;
+    private Long id;
 
     private String description;
     @OneToMany(mappedBy = "ownerId")

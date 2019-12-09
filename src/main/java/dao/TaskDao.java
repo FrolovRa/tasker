@@ -8,7 +8,7 @@ import java.util.Set;
 public interface TaskDao {
     Optional<Task> findById(long taskId);
 
-    Set<Task> findByUserId(long userId);
+    Set<Task> findTasksByUserId(long userId);
 
-    void putTask(Task task);
+    Task putTask(Task task);
 }

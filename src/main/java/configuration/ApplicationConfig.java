@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan(basePackages = {"dao", "controller", "service"})
 @EnableTransactionManagement
-@Import({TestDatabaseConfig.class})
-public class TestAppConfig {
+@Import({DatabaseConfig.class})
+public class ApplicationConfig {
 
     @Bean
     public PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
