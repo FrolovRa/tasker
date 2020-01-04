@@ -16,6 +16,7 @@ public class User {
     private Long id;
 
     private String description;
-    @OneToMany(mappedBy = "ownerId")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "ownerId")
+    @OrderBy("created ASC")
     private Set<Task> tasks;
 }

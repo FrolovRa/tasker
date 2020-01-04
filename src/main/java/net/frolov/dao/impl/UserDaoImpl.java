@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Repository
+@Transactional
 public class UserDaoImpl implements UserDao {
 
     @Autowired
@@ -23,10 +24,9 @@ public class UserDaoImpl implements UserDao {
                 .loadOptional(userId);
     }
 
-    @Transactional
-    public User saveUser() {
+    public User saveUser(User user) {
         final val session = sessionFactory.getCurrentSession();
-        final val id = session.save(new User());
+        final val id = session.save(user);
         return session.get(User.class, id);
     }
 }

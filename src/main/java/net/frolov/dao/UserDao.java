@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface UserDao {
     Optional<User> findById(long userId);
 
-    User saveUser();
+    User saveUser(User user);
 }

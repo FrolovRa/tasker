@@ -3,11 +3,14 @@ package net.frolov.service.impl;
 import lombok.val;
 import net.frolov.dao.UserDao;
 import net.frolov.entity.User;
+import net.frolov.entity.dto.UserCreateDto;
 import net.frolov.entity.dto.UserReadDto;
 import net.frolov.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import net.frolov.service.UserService;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,8 +26,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserReadDto addUser() {
-        User savedUser = userDao.saveUser();
+    public UserReadDto addUser(UserCreateDto userCreateDto) {
+        final User user = new User();
+        user.setDescription(userCreateDto.getDescription());
+        user.setTasks(Collections.emptySet());
+        User savedUser = userDao.saveUser(user);
         return toReadDto(savedUser);
     }
 
