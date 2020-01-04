@@ -9,7 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = {"dao", "controller", "service"})
+@ComponentScan(basePackages = {"net.frolov.dao", "net.frolov.controller", "net.frolov.service"})
 @EnableTransactionManagement
 @Import({TestDatabaseConfig.class})
 public class TestApplicationConfig {

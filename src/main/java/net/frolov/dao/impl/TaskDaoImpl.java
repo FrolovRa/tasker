@@ -1,9 +1,8 @@
-package dao.impl;
+package net.frolov.dao.impl;
 
-import dao.TaskDao;
-import entity.Task;
+import net.frolov.dao.TaskDao;
+import net.frolov.entity.Task;
 import lombok.val;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

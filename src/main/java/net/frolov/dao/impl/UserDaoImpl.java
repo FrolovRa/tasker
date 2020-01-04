@@ -1,7 +1,7 @@
-package dao.impl;
+package net.frolov.dao.impl;
 
-import dao.UserDao;
-import entity.User;
+import net.frolov.dao.UserDao;
+import net.frolov.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

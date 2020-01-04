@@ -1,6 +1,6 @@
-package service;
+package net.frolov.service;
 
-import entity.User;
+import net.frolov.entity.User;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,4 +1,4 @@
-package entity;
+package net.frolov.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;

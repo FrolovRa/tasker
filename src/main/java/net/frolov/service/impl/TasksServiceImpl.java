@@ -1,10 +1,10 @@
-package service.impl;
+package net.frolov.service.impl;
 
-import dao.TaskDao;
-import entity.Task;
+import net.frolov.dao.TaskDao;
+import net.frolov.entity.Task;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import service.TasksService;
+import net.frolov.service.TasksService;
 
 import java.util.Set;
 

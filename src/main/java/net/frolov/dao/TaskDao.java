@@ -1,6 +1,6 @@
-package dao;
+package net.frolov.dao;
 
-import entity.Task;
+import net.frolov.entity.Task;
 
 import java.util.Optional;
 import java.util.Set;

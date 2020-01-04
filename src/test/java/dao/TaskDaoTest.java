@@ -1,6 +1,6 @@
 package dao;
 
-import entity.Task;
+import net.frolov.entity.Task;
 import lombok.val;
 import org.junit.Test;
 

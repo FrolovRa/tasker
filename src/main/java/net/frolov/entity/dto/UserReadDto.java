@@ -1,12 +1,12 @@
-package entity.dto;
+package net.frolov.entity.dto;
 
-import entity.Task;
+import net.frolov.entity.Task;
 import lombok.Data;
 
 import java.util.Set;
 
 @Data
-public class UserDto {
+public class UserReadDto {
     private long id;
 
     private String description;

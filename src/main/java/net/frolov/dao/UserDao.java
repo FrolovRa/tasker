@@ -1,6 +1,6 @@
-package dao;
+package net.frolov.dao;
 
-import entity.User;
+import net.frolov.entity.User;
 
 public interface UserDao {
     User findById(long userId);

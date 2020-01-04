@@ -1,6 +1,6 @@
-package service;
+package net.frolov.service;
 
-import entity.Task;
+import net.frolov.entity.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

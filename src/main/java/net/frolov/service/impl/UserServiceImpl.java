@@ -1,9 +1,9 @@
-package service.impl;
+package net.frolov.service.impl;
 
-import dao.UserDao;
-import entity.User;
+import net.frolov.dao.UserDao;
+import net.frolov.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import service.UserService;
+import net.frolov.service.UserService;
 
 public class UserServiceImpl implements UserService {
 
