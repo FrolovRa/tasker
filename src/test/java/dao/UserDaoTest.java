@@ -8,7 +8,7 @@ public class UserDaoTest extends AbstractDaoTest {
 
     @Test
     public void testCreateUser() {
-        val result = userDao.createUser();
+        val result = userDao.saveUser();
         System.out.println(result);
     }
 

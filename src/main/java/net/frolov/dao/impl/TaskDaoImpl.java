@@ -29,10 +29,10 @@ public class TaskDaoImpl implements TaskDao {
 
     @Override
     public Set<Task> findTasksByUserId(long userId) {
-        val criteriaBuilder = sessionFactory.getCriteriaBuilder();
-        val criteriaQuery = criteriaBuilder.createQuery(Task.class);
-        val root = criteriaQuery.from(Task.class);
-        val condition = criteriaBuilder.equal(root.get("ownerId"), userId);
+        final val criteriaBuilder = sessionFactory.getCriteriaBuilder();
+        final val criteriaQuery = criteriaBuilder.createQuery(Task.class);
+        final val root = criteriaQuery.from(Task.class);
+        final val condition = criteriaBuilder.equal(root.get("ownerId"), userId);
         criteriaQuery.select(root).where(condition);
         return sessionFactory
                 .getCurrentSession()
@@ -43,8 +43,8 @@ public class TaskDaoImpl implements TaskDao {
 
     @Override
     public Task saveTask(Task task) {
-        val session = sessionFactory.getCurrentSession();
-        val id = session.save(task);
+        final val session = sessionFactory.getCurrentSession();
+        final val id = session.save(task);
         return session.get(Task.class, id);
     }
 }

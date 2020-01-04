@@ -1,10 +1,9 @@
 package net.frolov.service;
 
-import net.frolov.entity.User;
-import org.springframework.stereotype.Service;
+import net.frolov.entity.dto.UserReadDto;
 
 public interface UserService {
-    User findById(long userId);
+    UserReadDto findById(long userId);
 
-    User createUser();
+    UserReadDto addUser();
 }

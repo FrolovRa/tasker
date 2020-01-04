@@ -15,17 +15,17 @@ public class TaskController {
     TasksService tasksService;
 
     @GetMapping("/byId/{id}")
-    public TaskReadDto getTask(@PathVariable long id) {
+    public TaskReadDto getTask(@PathVariable final long id) {
         return tasksService.findById(id);
     }
 
     @GetMapping("/byUserId/{id}")
-    public Set<TaskReadDto> getTasks(@PathVariable long id) {
+    public Set<TaskReadDto> getTasks(@PathVariable final long id) {
         return tasksService.findByUserId(id);
     }
 
     @PostMapping
-    public TaskReadDto addTask(@RequestBody TaskCreateDto task) {
+    public TaskReadDto addTask(@RequestBody final TaskCreateDto task) {
         return tasksService.addTask(task);
     }
 }

@@ -1,14 +1,14 @@
 package net.frolov.dao.impl;
 
+import lombok.val;
 import net.frolov.dao.UserDao;
 import net.frolov.entity.User;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.io.Serializable;
+import java.util.Optional;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -16,16 +16,17 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public User findById(long userId) {
+    public Optional<User> findById(long userId) {
         return sessionFactory
-                .openSession()
-                .get(User.class, userId);
+                .getCurrentSession()
+                .byId(User.class)
+                .loadOptional(userId);
     }
 
     @Transactional
-    public User createUser() {
-        Session session = sessionFactory.getCurrentSession();
-        Serializable id = session.save(new User());
+    public User saveUser() {
+        final val session = sessionFactory.getCurrentSession();
+        final val id = session.save(new User());
         return session.get(User.class, id);
     }
 }

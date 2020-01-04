@@ -1,7 +1,5 @@
 package net.frolov.configuration;
 
-import net.frolov.entity.Task;
-import net.frolov.entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +15,6 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
-
     @Value("${jdbc.driverClassName}")
     private String driverClassName;
     @Value("${jdbc.url}")
@@ -26,6 +23,12 @@ public class DatabaseConfig {
     private String username;
     @Value("${jdbc.password}")
     private String password;
+    @Value("${hibernate.dialect}")
+    private String hibernateDialect;
+    @Value("${hibernate.show_sql}")
+    private String hibernateShowSql;
+    @Value("${hibernate.hbm2ddl.auto}")
+    private String hibernateHBM2DDLAuto;
 
     @Bean
     public DataSource dataSource() {
@@ -36,13 +39,6 @@ public class DatabaseConfig {
         dataSource.setPassword(password);
         return dataSource;
     }
-
-    @Value("${hibernate.dialect}")
-    private String hibernateDialect;
-    @Value("${hibernate.show_sql}")
-    private String hibernateShowSql;
-    @Value("${hibernate.hbm2ddl.auto}")
-    private String hibernateHBM2DDLAuto;
 
     @Bean
     public Properties hibernateProperties() {

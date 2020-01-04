@@ -24,7 +24,6 @@ public class TestDatabaseConfig {
     private String username;
     @Value("${jdbc.password}")
     private String password;
-
     @Value("${hibernate.dialect}")
     private String hibernateDialect;
     @Value("${hibernate.show_sql}")

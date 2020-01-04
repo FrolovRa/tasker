@@ -21,8 +21,8 @@ public class TasksServiceImpl implements TasksService {
 
     @Override
     public TaskReadDto findById(long taskId) {
-        val taskOptional = taskDao.findById(taskId);
-        val task = taskOptional.orElseThrow(() -> new EntityNotFoundException(Task.class, taskId));
+        final val taskOptional = taskDao.findById(taskId);
+        final Task task = taskOptional.orElseThrow(() -> new EntityNotFoundException(Task.class, taskId));
         return toReadDto(task);
     }
 
@@ -36,18 +36,18 @@ public class TasksServiceImpl implements TasksService {
 
     @Override
     public TaskReadDto addTask(TaskCreateDto taskCreateDto) {
-        val task = new Task();
+        final Task task = new Task();
         task.setTaskDescription(taskCreateDto.getTaskDescription());
         task.setCreated(taskCreateDto.getCreated());
         task.setOwnerId(taskCreateDto.getOwnerId());
 
-        val savedTask = taskDao.saveTask(task);
+        final Task savedTask = taskDao.saveTask(task);
 
         return toReadDto(savedTask);
     }
 
     private TaskReadDto toReadDto(Task task) {
-        val taskReadDto = new TaskReadDto();
+        final val taskReadDto = new TaskReadDto();
         taskReadDto.setId(task.getId());
         taskReadDto.setOwnerId(task.getOwnerId());
         taskReadDto.setTaskDescription(task.getTaskDescription());
