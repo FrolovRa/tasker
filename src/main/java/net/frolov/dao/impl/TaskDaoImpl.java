@@ -19,18 +19,21 @@ public class TaskDaoImpl implements TaskDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
     public Optional<Task> findById(long taskId) {
-        return Optional.of(sessionFactory
+        return sessionFactory
                 .getCurrentSession()
-                .get(Task.class, taskId));
+                .byId(Task.class)
+                .loadOptional(taskId);
     }
 
+    @Override
     public Set<Task> findTasksByUserId(long userId) {
         val criteriaBuilder = sessionFactory.getCriteriaBuilder();
         val criteriaQuery = criteriaBuilder.createQuery(Task.class);
         val root = criteriaQuery.from(Task.class);
-        val rest = criteriaBuilder.equal(root.get("ownerId"), userId);
-        criteriaQuery.select(root).where(rest);
+        val condition = criteriaBuilder.equal(root.get("ownerId"), userId);
+        criteriaQuery.select(root).where(condition);
         return sessionFactory
                 .getCurrentSession()
                 .createQuery(criteriaQuery)
@@ -38,7 +41,8 @@ public class TaskDaoImpl implements TaskDao {
                 .collect(Collectors.toSet());
     }
 
-    public Task putTask(Task task) {
+    @Override
+    public Task saveTask(Task task) {
         val session = sessionFactory.getCurrentSession();
         val id = session.save(task);
         return session.get(Task.class, id);

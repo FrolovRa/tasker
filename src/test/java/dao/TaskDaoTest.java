@@ -16,7 +16,7 @@ public class TaskDaoTest extends AbstractDaoTest {
     public void testCreateTask() {
         val task = new Task("first task", 2L);
 
-        val taskFromDb = taskDao.putTask(task);
+        val taskFromDb = taskDao.saveTask(task);
 
         assertEquals(task, taskFromDb);
     }

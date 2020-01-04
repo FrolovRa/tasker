@@ -10,5 +10,5 @@ public interface TaskDao {
 
     Set<Task> findTasksByUserId(long userId);
 
-    Task putTask(Task task);
+    Task saveTask(Task task);
 }

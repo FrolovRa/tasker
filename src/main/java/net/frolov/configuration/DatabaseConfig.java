@@ -1,5 +1,7 @@
 package net.frolov.configuration;
 
+import net.frolov.entity.Task;
+import net.frolov.entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -54,7 +56,7 @@ public class DatabaseConfig {
     @Bean
     public SessionFactory sessionFactory() {
         return new LocalSessionFactoryBuilder(dataSource())
-                .scanPackages("dao")
+                .scanPackages("net.frolov.entity")
                 .addProperties(hibernateProperties())
                 .buildSessionFactory();
     }

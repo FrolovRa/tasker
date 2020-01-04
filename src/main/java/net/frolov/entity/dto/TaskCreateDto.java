@@ -5,9 +5,7 @@ import lombok.Data;
 import java.time.ZonedDateTime;
 
 @Data
-public class TaskReadDto {
-    private long id;
-
+public class TaskCreateDto {
     private long ownerId;
 
     private String taskDescription;

@@ -44,7 +44,7 @@ public class TestDatabaseConfig {
     @Bean
     public SessionFactory sessionFactory() {
         return new LocalSessionFactoryBuilder(h2DataSource())
-                .scanPackages("")
+                .scanPackages("net.frolov.entity")
                 .addProperties(hibernateProperties())
                 .buildSessionFactory();
     }

@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @Import({DatabaseConfig.class})
 public class ApplicationConfig {
-
     @Bean
     public PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
         PropertySourcesPlaceholderConfigurer ppc = new PropertySourcesPlaceholderConfigurer();

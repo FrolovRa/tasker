@@ -1,15 +1,14 @@
 package net.frolov.service;
 
-import net.frolov.entity.Task;
-import org.springframework.stereotype.Service;
+import net.frolov.entity.dto.TaskCreateDto;
+import net.frolov.entity.dto.TaskReadDto;
 
 import java.util.Set;
 
-@Service
 public interface TasksService {
-    Task findById(long taskId);
+    TaskReadDto findById(long taskId);
 
-    Set<Task> findByUserId(long userId);
+    Set<TaskReadDto> findByUserId(long userId);
 
-    void putTask(Task task);
+    TaskReadDto addTask(TaskCreateDto task);
 }
