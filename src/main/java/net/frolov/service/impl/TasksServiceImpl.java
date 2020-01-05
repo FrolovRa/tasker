@@ -11,6 +11,7 @@ import net.frolov.service.TasksService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,7 +32,7 @@ public class TasksServiceImpl implements TasksService {
         return taskDao.findTasksByUserId(userId)
                 .stream()
                 .map(this::toReadDto)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toCollection(TreeSet::new));
     }
 
     @Override
